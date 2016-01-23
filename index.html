@@ -48,4 +48,30 @@
       </p>
     </div>
   </body>
+  <script>
+    var lr = 26, lg = 26, lb = 26;
+
+    function fadeColor() {
+      var r = Math.round(Math.random()* 127) + 127;
+      var g = Math.round(Math.random()* 127) + 127;
+      var b = Math.round(Math.random()* 127) + 127;
+
+      var fade = setInterval(function () {
+        if (lr > r) lr--;
+        if (lr < r) lr++;
+        if (lg > g) lg--;
+        if (lg < g) lg++;
+        if (lb > b) lb--;
+        if (lb < b) lb++;
+        if (lr == r && lg == g && lb == b) {
+          clearInterval(fade);
+          fadeColor();
+        }
+
+        document.body.style.background = "#" + lr.toString(16) + lg.toString(16) + lb.toString(16);
+      }, 50);
+    }
+
+    fadeColor();
+  </script>
 </html>
